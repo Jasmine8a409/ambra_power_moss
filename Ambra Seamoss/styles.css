@@ -1,0 +1,246 @@
+/* ---------- Global Reset ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Body / Background ---------- */
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  color: #fdfdfd;
+
+  /* Your underwater image */
+  background-image: url('images/apm-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/* ---------- Layout Containers ---------- */
+header,
+nav,
+.section,
+.hero,
+footer,
+form {
+  background-color: rgba(0, 0, 0, 0.55); /* glassy overlay */
+}
+
+/* ---------- Header ---------- */
+header {
+  padding: 1rem 2rem;
+}
+header h1 {
+  margin-bottom: 0.25rem;
+}
+header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+nav a {
+  color: #fdfdfd;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Generic Section ---------- */
+.section {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  line-height: 1.7;
+}
+
+/* ---------- Hero (Home Page) ---------- */
+.hero {
+  max-width: 1100px;
+  margin: 2rem auto 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  max-width: 650px;
+  margin: 0.5rem auto 1.5rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #f5b52f;
+  color: #1c1c1c;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+/* ---------- Lists ---------- */
+ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+li {
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Products Grid ---------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ---------- Product Cards w/ Toggle ---------- */
+.product-card {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide checkbox */
+.product-card input.toggle {
+  display: none;
+}
+
+/* Clickable label */
+.product-card label {
+  display: block;
+  cursor: pointer;
+}
+
+/* Header row inside card */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.product-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.price {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #f5b52f;
+  white-space: nowrap;
+}
+.tagline {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+.summary-note {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Arrow icon */
+.arrow {
+  position: absolute;
+  right: 1.25rem;
+  top: 1.2rem;
+  font-size: 1rem;
+  color: #ddd;
+  transition: transform 0.2s ease;
+}
+.product-card input.toggle:checked + label .arrow {
+  transform: rotate(90deg);
+}
+
+/* Hidden body content */
+.product-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Show body only on checked card */
+.product-card input.toggle:checked ~ .product-body {
+  max-height: 500px;
+  margin-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 0.75rem;
+}
+
+/* ---------- Forms (Contact Page) ---------- */
+form {
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fdfdfd;
+}
+textarea {
+  min-height: 120px;
+}
+button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: #f5b52f;
+  color: #1c1c1c;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover {
+  filter: brightness(1.05);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
